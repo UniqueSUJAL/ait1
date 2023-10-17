@@ -1,0 +1,35 @@
+def move(subject,x,y):
+    return f" move {subject} from {x} to {y}"
+    
+def climb(x,direction):
+    return f"climb {x}{direction}"
+    
+def push_box(x,y):
+    return f"push box from{x} to {y}"
+    
+def get_banana(x):
+    return f"grapse banana{x}"
+    
+inital_state={"monkeyAt0":True,
+              "monkeylevel":'Down',
+              "bananaAt1":True,
+              "boxAt2":True}
+              
+              
+goal_state={
+    "getbanana":True,
+    "at":1
+}
+
+def postion(inital_state,goal_state):
+    action=[]
+    if inital_state['monkeyAt0']and inital_state["bananaAt1"]:
+        action.append(move("monkey",0,1))
+        action.append(push_box(0,1))
+        action.append(climb(1,"up"))
+        action.append(get_banana(1))
+    return action
+action=postion(inital_state,goal_state)
+
+for actions in action:
+    print(actions)
