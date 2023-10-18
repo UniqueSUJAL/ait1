@@ -6,13 +6,13 @@ def attack(i,j):
     for k in range(0,N):
         if board[i][k]==1 or board[k][j]==1:
             return True
-        for k in range(0,N):
-            for l in range(0,N):
-                if(k+l==i+j) or (k-l==i-j):
-                    if board[k][l]==1:
-                        return True
+    for k in range(0,N):
+        for l in range(0,N):
+             if(k+l==i+j) or (k-l==i-j):
+                     if board[k][l]==1:
+                             return True
                         
-        return False
+    return False
 
 def N_q(n):
     if n==0:
