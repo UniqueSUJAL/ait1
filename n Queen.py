@@ -8,9 +8,9 @@ def attack(i,j):
             return True
     for k in range(0,N):
         for l in range(0,N):
-             if(k+l==i+j) or (k-l==i-j):
-                     if board[k][l]==1:
-                             return True
+            if(k+l==i+j) or (k-l==i-j):
+                if board[k][l]==1:
+                    return True
                         
     return False
 
@@ -21,8 +21,10 @@ def N_q(n):
     for i in range(0,N):
         for j in range(0,N):
             if(not(attack(i,j))) and (board[i][j]!=1):
-                return True
-            board[i][j]=0
+                board[i][j]=1
+                if N_q(n-1)==True:
+                    return True
+                board[i][j]=0
     return False
 N_q(N)
 for i in board:
